@@ -30,7 +30,7 @@ git config --global user.email "votre.email@example.com"
 Clonez ce répertoire sur votre machine locale en utilisant la commande suivante :
 
 ```sh
-git clone https://github.com/Lehcir/wastia.git
+git clone https://github.com/Lehcir07/wastia.git
 ```
 
 ### 2. Aller dans le répertoire sur votre machine locale
