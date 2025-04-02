@@ -1320,7 +1320,7 @@ h6 {
 }
 
 .home-nav {
-  position: absolute;
+  position: absolutere;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -2654,7 +2654,7 @@ input[type=radio] {
   justify-content: space-between;
 }
 .navbar .dropdown-menu.mega-dropdown-menu .nav-block-featured .nav-title {
-  font-size: 24px;
+  font-size: 30px;
 }
 .navbar .dropdown-menu.mega-dropdown-menu .nav-block-featured .nav-desc {
   font-size: 14px;
