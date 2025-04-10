@@ -186,7 +186,58 @@
     </section><!-- /.page-title -->
 
 
-
+    <section class="prospection-form">
+      <form id="multiStepForm" action="traitement.php" method="POST">
+        
+        <!-- ÉTAPE 1 -->
+        <div class="form-step active">
+          <h2>Informations du Prospect</h2>
+          <input type="text" name="structure" placeholder="Nom de la structure" required>
+          <input type="text" name="responsable" placeholder="Nom du responsable" required>
+          <input type="tel" name="telephone" placeholder="Téléphone" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="adresse" placeholder="Adresse" required>
+          <input type="text" name="lieu" placeholder="Type de lieu" required>
+          <div class="navigation-buttons">
+            <button type="button" class="btn-red next-btn">Suivant</button>
+          </div>
+        </div>
+    
+        <!-- ÉTAPE 2 -->
+        <div class="form-step">
+          <h2>Échange avec le Prospect</h2>
+          <textarea name="echange" placeholder="Résumé de l'échange avec le client" required></textarea>
+          <div class="navigation-buttons">
+            <button type="button" class="btn-red prev-btn">Précédent</button>
+            <button type="button" class="btn-red next-btn">Suivant</button>
+          </div>
+        </div>
+    
+        <!-- ÉTAPE 3 -->
+        <div class="form-step">
+          <h2>Évaluation de l’Environnement</h2>
+          <textarea name="environnement" placeholder="Analyse de l’environnement du prospect" required></textarea>
+          <div class="navigation-buttons">
+            <button type="button" class="btn-red prev-btn">Précédent</button>
+            <button type="button" class="btn-red next-btn">Suivant</button>
+          </div>
+        </div>
+    
+        <!-- ÉTAPE 4 -->
+        <div class="form-step">
+          <h2>Proposition Commerciale</h2>
+          <input type="text" name="packs" placeholder="Pack proposé" required>
+          <textarea name="observations" placeholder="Observations ou remarques" required></textarea>
+          <div class="navigation-buttons">
+            <button type="button" class="btn-red prev-btn">Précédent</button>
+            <button type="submit" class="btn-red">Envoyer</button>
+          </div>
+        </div>
+    
+      </form>
+    </section>
+    
+    
 
     <!-- ========================
       Footer
@@ -354,6 +405,39 @@
   <script src="assets/js/jquery-3.5.1.min.js"></script>
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+    const steps = document.querySelectorAll('.form-step');
+    const nextBtns = document.querySelectorAll('.next-btn');
+    const prevBtns = document.querySelectorAll('.prev-btn');
+    let currentStep = 0;
+  
+    function showStep(index) {
+      steps.forEach((step, i) => {
+        step.classList.toggle('active', i === index);
+      });
+    }
+  
+    nextBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      });
+    });
+  
+    prevBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+    });
+  
+    showStep(currentStep);
+  </script>
+  
 </body>
 
 </html>
