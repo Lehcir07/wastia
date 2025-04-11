@@ -147,15 +147,17 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-xl-6 offset-xl-3">
-            <h1 class="pagetitle-heading">Aide et FAQ</h1>
-            <p class="pagetitle-desc">Convaincus que chaque geste compte, nous connectons les citoyens à des solutions de recyclage efficaces.
-              Pour qu’ils disposent d’informations utiles au bon moment,
-              qu’ils respectent l’environnement, et que nous nous engagions à un service exemplaire.
+            <h1 class="pagetitle-heading">Souscription</h1>
+            <p class="pagetitle-desc">Vous êtes intéressé(e) par les services de Shekina Service ?<br>
+              Notre équipe met à votre disposition une fiche de prospection commerciale claire et intuitive 
+              pour mieux comprendre vos besoins et vous proposer des solutions.<br>
+              Remplissez le formulaire en quelques étapes et bénéficiez d’un accompagnement sur mesure. <br>
+              ✅ Simple – Rapide – Sécurisé
             </p>
             <div class="d-flex flex-wrap align-items-center justify-content-center">
-              <a href="tests-prepare-test.html" class="btn btn-white mb-10 mx-3">
+              <a href="souscription.html" class="btn btn-white mb-10 mx-3">
                 <i class="icon-arrow-right"></i>
-                <span>Se preparer à un test</span>
+                <span>Recevoir un Devis</span>
               </a>
               <a href="contact-us.html" class="btn btn-white btn-outlined mb-10 mx-3">
                 <span>Contactez-nous</span>
@@ -169,7 +171,7 @@
                 <li class="breadcrumb-item">
                   <a href="about-us.html">Qui sommes-nous</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Aide et FAQ</li>
+                <li class="breadcrumb-item active" aria-current="page">souscription</li>
               </ol>
             </nav>
           </div><!-- /.col-xl-6 -->
@@ -185,60 +187,95 @@
       </div><!-- /.curve -->
     </section><!-- /.page-title -->
 
-
-    <section class="prospection-form">
-      <form id="multiStepForm" action="traitement.php" method="POST">
-        
-        <!-- ÉTAPE 1 -->
+    
+    <div class="form-container">
+      <form id="prospectionForm" action="traitement.php" method="POST">
+        <!-- Étape 1 -->
         <div class="form-step active">
+          <h2>Fiche de Prospection</h2>
+          <label>Nom du commercial <input type="text" name="commercial" required></label>
+          <label>Date <input type="date" name="date" required></label>
+          <label>Heure <input type="time" name="heure" required></label>
           <h2>Informations du Prospect</h2>
-          <input type="text" name="structure" placeholder="Nom de la structure" required>
-          <input type="text" name="responsable" placeholder="Nom du responsable" required>
-          <input type="tel" name="telephone" placeholder="Téléphone" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="text" name="adresse" placeholder="Adresse" required>
-          <input type="text" name="lieu" placeholder="Type de lieu" required>
-          <div class="navigation-buttons">
-            <button type="button" class="btn-red next-btn">Suivant</button>
-          </div>
+          <label>Nom de la structure <input type="text" name="structure" required></label>
+          <label>Nom du responsable <input type="text" name="responsable" required></label>
+          <label>Téléphone <input type="tel" name="telephone" required></label>
+          <label>Email <input type="email" name="email" required></label>
+          <label>Adresse <input type="text" name="adresse" required></label>
+          <label>Type de lieu <input type="text" name="type_lieu" required></label>
+          <button type="button" onclick="nextStep()">Suivant</button>
         </div>
     
-        <!-- ÉTAPE 2 -->
+        <!-- Étape 2 -->
         <div class="form-step">
           <h2>Échange avec le Prospect</h2>
-          <textarea name="echange" placeholder="Résumé de l'échange avec le client" required></textarea>
-          <div class="navigation-buttons">
-            <button type="button" class="btn-red prev-btn">Précédent</button>
-            <button type="button" class="btn-red next-btn">Suivant</button>
-          </div>
+          <label>Intérêt :
+            <input type="radio" name="interet" value="Oui" required> Oui
+            <input type="radio" name="interet" value="Non"> Non
+            <input type="radio" name="interet" value="À revoir"> À revoir
+          </label>
+          <label>Besoins exprimés <input type="text" name="besoins"></label>
+    
+          <p>Packs évoqués :</p>
+          <label><input type="checkbox" name="packs[]" value="Pack Résidence Privée"> Pack Résidence Privée</label>
+          <label><input type="checkbox" name="packs[]" value="Pack Junior"> Pack Junior</label>
+          <label><input type="checkbox" name="packs[]" value="Pack Standard"> Pack Standard</label>
+          <label><input type="checkbox" name="packs[]" value="Pack Personnalisé"> Pack Personnalisé</label>
+          <label><input type="checkbox" name="packs[]" value="Autre"> Autre</label>
+    
+          <label>Objections éventuelles <textarea name="objections"></textarea></label>
+          <button type="button" onclick="prevStep()">Précédent</button>
+          <button type="button" onclick="nextStep()">Suivant</button>
         </div>
     
-        <!-- ÉTAPE 3 -->
+        <!-- Étape 3 -->
         <div class="form-step">
           <h2>Évaluation de l’Environnement</h2>
-          <textarea name="environnement" placeholder="Analyse de l’environnement du prospect" required></textarea>
-          <div class="navigation-buttons">
-            <button type="button" class="btn-red prev-btn">Précédent</button>
-            <button type="button" class="btn-red next-btn">Suivant</button>
-          </div>
+          <label>Propreté :
+            <input type="radio" name="proprete" value="Bonne" required> Bonne
+            <input type="radio" name="proprete" value="Moyenne"> Moyenne
+            <input type="radio" name="proprete" value="Mauvaise"> Mauvaise
+          </label>
+          <label>Nuisibles :
+            <input type="radio" name="nuisibles" value="Aucune" required> Aucune
+            <input type="radio" name="nuisibles" value="Faible"> Faible
+            <input type="radio" name="nuisibles" value="Forte"> Forte
+          </label>
+          <label>Présence d’ordures :
+            <input type="radio" name="ordures" value="Oui" required> Oui
+            <input type="radio" name="ordures" value="Non"> Non
+          </label>
+          <label>Accessibilité :
+            <input type="radio" name="accessibilite" value="Facile" required> Facile
+            <input type="radio" name="accessibilite" value="Moyenne"> Moyenne
+            <input type="radio" name="accessibilite" value="Difficile"> Difficile
+          </label>
+          <button type="button" onclick="prevStep()">Précédent</button>
+          <button type="button" onclick="nextStep()">Suivant</button>
         </div>
     
-        <!-- ÉTAPE 4 -->
+        <!-- Étape 4 -->
         <div class="form-step">
-          <h2>Proposition Commerciale</h2>
-          <input type="text" name="packs" placeholder="Pack proposé" required>
-          <textarea name="observations" placeholder="Observations ou remarques" required></textarea>
-          <div class="navigation-buttons">
-            <button type="button" class="btn-red prev-btn">Précédent</button>
-            <button type="submit" class="btn-red">Envoyer</button>
-          </div>
+          <h2>Proposition Faite</h2>
+          <label>Pack proposé <input type="text" name="pack_propose" required></label>
+          <label>Tarif présenté <input type="text" name="tarif" required></label>
+    
+          <p>Actions :</p>
+          <label><input type="checkbox" name="actions[]" value="Relancer"> Appeler pour relancer</label>
+          <label><input type="checkbox" name="actions[]" value="Envoyer devis"> Envoyer devis par mail</label>
+          <label><input type="checkbox" name="actions[]" value="Visite"> Planifier une visite</label>
+          <label><input type="checkbox" name="actions[]" value="Non intéressé"> Prospect non intéressé</label>
+    
+          <label>Commercial(e) Shekina <input type="text" name="commercial_nom" required></label>
+          <label>Signature Client (Nom) <input type="text" name="client_nom"></label>
+          <label><input type="checkbox" name="certifie" required> Je certifie que les informations fournies sont correctes.</label>
+    
+          <button type="button" onclick="prevStep()">Précédent</button>
+          <button type="submit">Soumettre</button>
         </div>
-    
       </form>
-    </section>
+    </div>
     
-    
-
     <!-- ========================
       Footer
     ========================== -->
@@ -406,34 +443,26 @@
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
-    const steps = document.querySelectorAll('.form-step');
-    const nextBtns = document.querySelectorAll('.next-btn');
-    const prevBtns = document.querySelectorAll('.prev-btn');
     let currentStep = 0;
+    const steps = document.querySelectorAll(".form-step");
   
     function showStep(index) {
-      steps.forEach((step, i) => {
-        step.classList.toggle('active', i === index);
-      });
+      steps.forEach((step, i) => step.classList.toggle("active", i === index));
     }
   
-    nextBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (currentStep < steps.length - 1) {
-          currentStep++;
-          showStep(currentStep);
-        }
-      });
-    });
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
   
-    prevBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (currentStep > 0) {
-          currentStep--;
-          showStep(currentStep);
-        }
-      });
-    });
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
   
     showStep(currentStep);
   </script>
