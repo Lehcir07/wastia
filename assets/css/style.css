@@ -944,7 +944,7 @@ textarea {
   margin-top: 5px;
   border: none;
   border-radius: 5px;
-  background: #8b8a8a;
+  background: #88b68a;
   color: #012217;
 }
 
@@ -2685,13 +2685,7 @@ input[type=radio] {
 }
 
 /* Navbar */
-.navbar {
-  padding: 0;
-  height: 100px;
-  max-height: 100px;
-  background-color: var(--color-white);
-  /*  dropdown-menu  */
-}
+
 .navbar > .container,
 .navbar > .container-fluid {
   position: relative;
